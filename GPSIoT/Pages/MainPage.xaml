@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps" x:Class="GPSIoT.Pages.MainPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="0">
+                <maps:Map WidthRequest="320" HeightRequest="200" x:Name="MyMap" IsShowingUser="true" MapType="Street" />
+                <Button Text="Toggle Listening" Command="{Binding ToggleListeningCommand}" />
+                <Button Text="Toggle Sending to IoT Hub" Command="{Binding ToggleSendToIoTHubCommand}" />
+                <TableView Intent="Form" HeightRequest="200">
+                    <TableRoot>
+                        <TableSection Title="Connection Status">
+                            <ViewCell>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center" Text="Location Supported" />
+                                    <Label Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" Text="{Binding IsLocationSupported}" TextColor="Gray" />
+                                </Grid>
+                            </ViewCell>
+                            <ViewCell>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center" Text="Listening" />
+                                    <Label Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" Text="{Binding IsListening}" TextColor="Gray" />
+                                </Grid>
+                            </ViewCell>
+                            <ViewCell>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center" Text="Sending to IoT Hub" />
+                                    <Label Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" Text="{Binding IsSendingToIoTHub}" TextColor="Gray" />
+                                </Grid>
+                            </ViewCell>
+                        </TableSection>
+                    </TableRoot>
+                </TableView>
+                <TableView Intent="Form">
+                    <TableRoot>
+                        <TableSection Title="Location Information">
+                            <ViewCell>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center" Text="Latitude" />
+                                    <Label Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" Text="{Binding CurrentLat}" TextColor="Gray" />
+                                </Grid>
+                            </ViewCell>
+                            <ViewCell>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center" Text="Longitude" />
+                                    <Label Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" Text="{Binding CurrentLong}" TextColor="Gray" />
+                                </Grid>
+                            </ViewCell>
+                            <ViewCell>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center" Text="Heading" />
+                                    <Label Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" Text="{Binding CurrentHeading}" TextColor="Gray" />
+                                </Grid>
+                            </ViewCell>
+                            <ViewCell>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center" Text="Speed" />
+                                    <Label Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" Text="{Binding CurrentSpeed, StringFormat='{0} km/h'}" TextColor="Gray" />
+                                </Grid>
+                            </ViewCell>
+                            <ViewCell>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center" Text="Accuracy" />
+                                    <Label Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" Text="{Binding CurrentAccuracy}" TextColor="Gray" />
+                                </Grid>
+                            </ViewCell>
+                        </TableSection>
+                    </TableRoot>
+                </TableView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
