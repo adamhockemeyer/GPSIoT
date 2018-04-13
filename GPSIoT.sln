@@ -7,6 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPSIoT.Droid", "Droid\GPSIo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPSIoT", "GPSIoT\GPSIoT.csproj", "{8EB6BA97-FC0C-476A-A060-CDC2ACBBB358}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{963E0FAA-EDF4-4C08-A415-CA4B94B5EB2A}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+		Demo.gif = Demo.gif
+		example-iot-data.txt = example-iot-data.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
